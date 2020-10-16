@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { getUnansweredQuestions } from '../QuestionsData';
+import { QuestionList } from './QuestionList';
+
 export const HomePage = () => (
     <section id="home">
         <div className="view-header">
@@ -10,9 +13,7 @@ export const HomePage = () => (
         </div>
         <main>
         <div className="container">
-            <div>
-                <p>Some text here</p>
-            </div>
+            <QuestionList data={getUnansweredQuestions()} />
         </div>
     </main>
     </section>

@@ -63,12 +63,12 @@ main {
 
 .btn-primary {
   background-color: var(--color-primary);
-  color: #fff;
+  color: #ccc;
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-  background-color: var(--color-accent);
+  color: #fff;
 }
 
 .app-header {
@@ -138,7 +138,9 @@ main {
 }
 
 .view-header {
-  padding: 1.25rem 0;
+  padding: 2.5rem 0;
+  background-color: var(--color-accent);
+  color: #fff;
 }
 
 .view-header .container {
@@ -148,5 +150,20 @@ main {
 }
 
 .view-header h2 {
-  font-size: 1.25rem;
+  font-size: 2rem;
+}
+
+.question-list {
+  padding: 0.25rem 1.5rem;
+  list-style-type: none;
+  background-color: #fff;
+  box-shadow: var(--shadow-soft);
+}
+
+.question-list li {
+  padding: 1.25rem 0;
+}
+
+.question-list li + li {
+  border-top: 1px solid var(--color-gray-light);
 }
