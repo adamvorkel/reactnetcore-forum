@@ -5,11 +5,12 @@
     sans-serif;
   /* Colors */
   --color-bg: #f9f7f7;
-  --color-light: #dbe2ef;
-  --color-gray-light: #ccc;
-  --color-dark: #222;
   --color-primary: #112d4e;
   --color-accent: #3f72af;
+  --color-light: #dbe2ef;
+  --color-dark: #222;
+  --color-gray-light: #ccc;
+  --color-gray-dark: #777;
   /* Shadows */
   --shadow-soft: 0px 5px 15px -10px rgba(110, 110, 110, 0.4);
 }
@@ -160,10 +161,19 @@ main {
   box-shadow: var(--shadow-soft);
 }
 
-.question-list li {
+.question-list .question {
   padding: 1.25rem 0;
 }
 
-.question-list li + li {
+.question-list .question + .question {
   border-top: 1px solid var(--color-gray-light);
+}
+
+.question-list .question .question-title {
+  margin-bottom: 0.5em;
+}
+
+.question-list .question .question-created {
+  font-size: 0.9rem;
+  color: var(--color-gray-dark);
 }

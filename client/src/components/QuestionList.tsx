@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
+
 import { QuestionData } from '../QuestionsData';
+import { Question } from './Question';
 
 interface Props {
     data: QuestionData[];
@@ -9,7 +11,7 @@ export const QuestionList: FC<Props> = ({ data }) => (
     <ul className="question-list">
         {data.map(question => (
             <li key={question.questionId}>
-                <h3>{question.title}</h3>
+                <Question data={question} />
             </li>
         ))}
     </ul>
