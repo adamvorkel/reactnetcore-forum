@@ -1,10 +1,19 @@
 import React from 'react';
 
 export const HomePage = () => (
-    <div>
-        <div>
+    <section id="home">
+        <div className="view-header">
+            <div className="container">
             <h2>Unanswered Questions</h2>
-            <button>Ask a question</button>
+                <button className="btn btn-primary">Ask a question</button>
+            </div>
         </div>
-    </div>
+        <main>
+        <div className="container">
+            <div>
+                <p>Some text here</p>
+            </div>
+        </div>
+    </main>
+    </section>
 );

@@ -4,10 +4,12 @@
     'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   /* Colors */
-  --color-light: #f7f8fa;
+  --color-bg: #f9f7f7;
+  --color-light: #dbe2ef;
+  --color-gray-light: #ccc;
   --color-dark: #222;
-  --color-primary: blue;
-  --color-accent: lightblue;
+  --color-primary: #112d4e;
+  --color-accent: #3f72af;
   /* Shadows */
   --shadow-soft: 0px 5px 15px -10px rgba(110, 110, 110, 0.4);
 }
@@ -24,21 +26,127 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
-  background-color: var(--color-light);
+  background-color: var(--color-bg);
 }
 
-header {
+input {
+  font-size: 0.9rem;
+}
+
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  display: none;
+}
+
+main {
+  margin-top: 1.25rem;
+}
+
+.container {
+  margin: 0 1.25rem;
+}
+
+.btn {
+  font-size: 0.9rem;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: all 0.15s ease;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--color-accent);
+}
+
+.app-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 0.6rem 1.25rem;
   background-color: #fff;
   box-shadow: var(--shadow-soft);
+  font-size: 0.9rem;
 }
 
-header .logo {
-  font-size: 1.5rem;
+.app-header .logo {
+  font-size: 1.25rem;
   font-weight: bold;
   color: var(--color-dark);
   text-decoration: none;
+}
+
+.app-header .search {
+  display: flex;
+  margin-right: auto;
+  margin-left: 1.25rem;
+  border-radius: 3rem;
+  border: 1px solid var(--color-gray-light);
+  overflow: hidden;
+}
+
+.app-header .search .search-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0.6rem 0.6rem 0.6rem 1rem;
+  cursor: pointer;
+}
+
+.app-header .search .search-input {
+  border: none;
+  outline: none;
+  padding: 0 1rem 0 0.3rem;
+}
+
+.app-header .login {
+  color: var(--color-dark);
+  text-decoration: none;
+  display: flex;
+}
+
+.app-header .login .login-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.app-header .login .login-text {
+  padding: 0.4rem;
+}
+
+@media screen and (min-width: 75rem) {
+  .container {
+    max-width: 70rem;
+    margin: 0 auto;
+  }
+}
+
+.view-header {
+  padding: 1.25rem 0;
+}
+
+.view-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.view-header h2 {
+  font-size: 1.25rem;
 }
