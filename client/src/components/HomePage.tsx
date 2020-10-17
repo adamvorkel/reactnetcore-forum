@@ -1,20 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { getUnansweredQuestions } from '../QuestionsData';
+import { QuestionData, getUnansweredQuestions } from '../QuestionsData';
 import { QuestionList } from './QuestionList';
 
-export const HomePage = () => (
-    <section id="home">
-        <div className="view-header">
-            <div className="container">
-                <h2>Unanswered Questions</h2>
-                <button className="btn btn-primary">Ask a question</button>
+export const HomePage = () => {
+    const [questions, setQuestions] = useState<QuestionData[] | null>(null);
+    const [loading, setLoading] = useState<boolean>(true);
+    useEffect(() => {
+        const doGetUnansweredQuestion = async () => {
+            const unansweredQuestions = await getUnansweredQuestions();
+            setQuestions(unansweredQuestions);
+            setLoading(false);
+        };
+        doGetUnansweredQuestion();
+    }, []);
+    return (
+        <section id="home">
+            <div className="view-header">
+                <div className="container">
+                    <h2>Unanswered Questions</h2>
+                    <button className="btn btn-primary">Ask a question</button>
+                </div>
             </div>
-        </div>
-        <main>
-            <div className="container">
-                <QuestionList data={getUnansweredQuestions()} />
-            </div>
-        </main>
-    </section>
-);
+            <main>
+                <div className="container">
+                    {loading ? (
+                        <div>Loading...</div>
+                    ) : (
+                        <QuestionList data={questions || []} />
+                    )}
+                </div>
+            </main>
+        </section>
+    );
+};
