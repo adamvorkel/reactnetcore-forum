@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { Link } from 'react-router-dom';
 
 import { QuestionData } from '../QuestionsData';
 
@@ -9,7 +10,9 @@ interface Props {
 
 export const Question: FC<Props> = ({ data, showContent = true }) => (
     <div className="question">
-        <h3 className="question-title">{data.title}</h3>
+        <Link to={`questions/${data.questionId}`} className="question-title">
+            {data.title}
+        </Link>
         {showContent && <p>{data.content}</p>}
         <span className="question-created">
             Asked by {data.userName} on {data.created.toLocaleDateString()}{' '}

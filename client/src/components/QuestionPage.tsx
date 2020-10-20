@@ -1,3 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 
-export const QuestionPage = () => <div>Question Page</div>;
+interface RouteParams {
+    questionId: string;
+}
+
+export const QuestionPage: FC<RouteComponentProps<RouteParams>> = ({
+    match,
+}) => <div>Question {match.params.questionId}</div>;

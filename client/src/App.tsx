@@ -6,6 +6,7 @@ import { HomePage } from './components/HomePage';
 import { SearchPage } from './components/SearchPage';
 import { AskPage } from './components/AskPage';
 import { LoginPage } from './components/LoginPage';
+import { QuestionPage } from './components/QuestionPage';
 import { NotFoundPage } from './components/NotFoundPage';
 import './App.css';
 
@@ -19,6 +20,10 @@ function App() {
                     <Route path="/search" component={SearchPage} />
                     <Route path="/ask" component={AskPage} />
                     <Route path="/login" component={LoginPage} />
+                    <Route
+                        path="/questions/:questionId"
+                        component={QuestionPage}
+                    />
                     <Route component={NotFoundPage} />
                 </Switch>
             </div>
