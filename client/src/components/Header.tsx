@@ -5,7 +5,7 @@ import { Search, User } from 'react-feather';
 export const Header = () => (
     <header className="Header">
         <Link to="/" className="logo">
-            GoodAdvice
+            twocents.
         </Link>
         <span className="search">
             <button className="search-button">
@@ -17,6 +17,9 @@ export const Header = () => (
                 placeholder="Search..."
             />
         </span>
+        <Link to="/ask" className="btn btn-primary">
+            Ask a question
+        </Link>
         <Link to="/login" className="login">
             <span className="login-icon">
                 <User size={16} />

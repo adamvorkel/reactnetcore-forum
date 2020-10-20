@@ -1,9 +1,10 @@
 import React, { FC, useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
-import { QuestionData, getQuestion } from '../../QuestionsData';
+import { QuestionData } from '../../QuestionsData';
 import { Question } from '../Question';
 import { AnswerList } from '../AnswerList';
+import { getQuestion } from '../../utils';
 
 interface RouteParams {
     questionId: string;

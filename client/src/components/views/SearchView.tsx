@@ -1,3 +1,29 @@
-import React from 'react';
+import React, { FC, useState, useEffect } from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 
-export const SearchView = () => <div>Search Results</div>;
+import { QuestionList } from '../QuestionList';
+import { QuestionData } from '../../QuestionsData';
+import { searchQuestions } from '../../utils';
+
+export const SearchView: FC<RouteComponentProps> = ({ location }) => {
+    const [questions, setQuestions] = useState<QuestionData[]>([]);
+
+    const searchParams = new URLSearchParams(location.search);
+    const searchQuery = searchParams.get('q') || '';
+
+    useEffect(() => {
+        const doSearch = async (q: string) => {
+            const results = await searchQuestions(q);
+            setQuestions(results);
+        };
+        doSearch(searchQuery);
+    }, [searchQuery]);
+    return (
+        <div className="View">
+            <div className="container">
+                <p>Search Results for "{searchQuery}"</p>
+                <QuestionList data={questions} />
+            </div>
+        </div>
+    );
+};

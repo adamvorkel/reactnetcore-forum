@@ -66,11 +66,11 @@ p {
 }
 
 .btn {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 0.45rem 1rem;
     cursor: pointer;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     transition: all 0.15s ease;
     text-decoration: none;
 }
@@ -81,11 +81,6 @@ p {
 
 .btn-primary {
     background-color: var(--color-primary);
-    color: #ccc;
-}
-
-.btn-primary:hover,
-.btn-primary:focus {
     color: #fff;
 }
 
@@ -124,12 +119,17 @@ p {
     outline: none;
     padding: 0.6rem 0.6rem 0.6rem 1rem;
     cursor: pointer;
+    color: var(--color-gray-dark);
 }
 
 .Header .search .search-input {
     border: none;
     outline: none;
     padding: 0 1rem 0 0.3rem;
+}
+
+.Header .btn {
+    margin-right: 1.25em;
 }
 
 .Header .login {
@@ -156,23 +156,7 @@ p {
 }
 
 .View {
-    margin-top: 3em;
-}
-
-.view-header {
-    padding: 2.5rem 0;
-    background-color: var(--color-accent);
-    color: #fff;
-}
-
-.view-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.view-header h2 {
-    font-size: 2rem;
+    margin-top: 2.5em;
 }
 
 .QuestionList .Question {

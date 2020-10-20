@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 
-import { QuestionData, getUnansweredQuestions } from '../../QuestionsData';
+import { QuestionData } from '../../QuestionsData';
 import { QuestionList } from '../QuestionList';
+import { getUnansweredQuestions } from '../../utils';
 
 export const HomeView = () => {
     const [questions, setQuestions] = useState<QuestionData[] | null>(null);
@@ -17,14 +17,6 @@ export const HomeView = () => {
     }, []);
     return (
         <section id="home">
-            <div className="view-header">
-                <div className="container">
-                    <h2>Unanswered Questions</h2>
-                    <Link to="/ask" className="btn btn-primary">
-                        Ask a question
-                    </Link>
-                </div>
-            </div>
             <div className="View">
                 <div className="container">
                     {loading ? (
