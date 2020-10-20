@@ -37,7 +37,7 @@ const questions: QuestionData[] = [
         ],
     },
     {
-        questionId: 1,
+        questionId: 2,
         title: 'This is a request for some advice...',
         content:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu accumsan mauris, nec facilisis arcu. Aliquam euismod blandit efficitur. Fusce metus diam, bibendum vel consectetur id, porttitor eget erat. Sed vestibulum, nisi at condimentum commodo, mauris dolor mattis orci, at eleifend justo risus eget diam. Praesent ut luctus sem. Mauris ornare fermentum pharetra. Sed auctor at lorem id mollis. Cras condimentum eros lectus, sagittis congue mauris placerat nec. Aliquam pretium convallis ante vel mattis.',
@@ -47,7 +47,16 @@ const questions: QuestionData[] = [
     },
 ];
 
+// Mock functions
 export const getUnansweredQuestions = async (): Promise<QuestionData[]> => {
-    await wait(500);
+    await wait(300);
     return questions.filter((q) => q.answers.length === 0);
+};
+
+export const getQuestion = async (
+    questionId: number,
+): Promise<QuestionData | null> => {
+    await wait(300);
+    const results = questions.filter((q) => q.questionId === questionId);
+    return results.length === 0 ? null : results[0];
 };

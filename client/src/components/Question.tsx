@@ -15,8 +15,9 @@ export const Question: FC<Props> = ({ data, showContent = true }) => (
         </Link>
         {showContent && <p>{data.content}</p>}
         <span className="question-created">
-            Asked by {data.userName} on {data.created.toLocaleDateString()}{' '}
-            {data.created.toLocaleTimeString()}
+            {`Asked by ${data.userName} on 
+            ${data.created.toLocaleDateString()} at 
+            ${data.created.toLocaleTimeString()}`}
         </span>
     </div>
 );

@@ -65,6 +65,12 @@ p {
     margin: 0 1.25rem;
 }
 
+.card {
+    padding: 0.25rem 1.5rem;
+    background-color: #fff;
+    box-shadow: var(--shadow-soft);
+}
+
 .btn {
     font-size: 0.9rem;
     border: none;
@@ -155,6 +161,10 @@ p {
     }
 }
 
+.View {
+    margin-top: 3em;
+}
+
 .view-header {
     padding: 2.5rem 0;
     background-color: var(--color-accent);
@@ -172,21 +182,18 @@ p {
 }
 
 .question-list {
-    padding: 0.25rem 1.5rem;
     list-style-type: none;
-    background-color: #fff;
-    box-shadow: var(--shadow-soft);
-}
-
-.question-list .question {
-    padding: 1.25rem 0;
 }
 
 .question-list .question + .question {
     border-top: 1px solid var(--color-gray-light);
 }
 
-.question-list .question .question-title {
+.question {
+    padding: 1.25rem 0;
+}
+
+.question .question-title {
     font-size: 1.25em;
     font-weight: bold;
     color: inherit;
@@ -195,7 +202,7 @@ p {
     color: var(--color-text-heading);
 }
 
-.question-list .question .question-created {
+.question .question-created {
     font-size: 0.9rem;
     color: var(--color-gray-dark);
 }

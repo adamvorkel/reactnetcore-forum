@@ -25,7 +25,7 @@ export const HomePage = () => {
                     </Link>
                 </div>
             </div>
-            <main>
+            <div className="View">
                 <div className="container">
                     {loading ? (
                         <div>Loading...</div>
@@ -33,7 +33,7 @@ export const HomePage = () => {
                         <QuestionList data={questions || []} />
                     )}
                 </div>
-            </main>
+            </div>
         </section>
     );
 };

@@ -8,7 +8,7 @@ interface Props {
 }
 
 export const QuestionList: FC<Props> = ({ data }) => (
-    <ul className="question-list">
+    <ul className="question-list card">
         {data.map((question) => (
             <li key={question.questionId}>
                 <Question data={question} />
