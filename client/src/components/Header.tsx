@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Search, User } from 'react-feather';
 
 export const Header = () => (
-    <header className="app-header">
+    <header className="Header">
         <Link to="/" className="logo">
             GoodAdvice
         </Link>
@@ -17,7 +17,7 @@ export const Header = () => (
                 placeholder="Search..."
             />
         </span>
-        <Link to="./login" className="login">
+        <Link to="/login" className="login">
             <span className="login-icon">
                 <User size={16} />
             </span>

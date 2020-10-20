@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { QuestionData, getUnansweredQuestions } from '../QuestionsData';
-import { QuestionList } from './QuestionList';
+import { QuestionData, getUnansweredQuestions } from '../../QuestionsData';
+import { QuestionList } from '../QuestionList';
 
-export const HomePage = () => {
+export const HomeView = () => {
     const [questions, setQuestions] = useState<QuestionData[] | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     useEffect(() => {

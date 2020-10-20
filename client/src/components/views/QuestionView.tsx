@@ -1,14 +1,15 @@
 import React, { FC, useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
-import { QuestionData, getQuestion } from '../QuestionsData';
-import { Question } from './Question';
+import { QuestionData, getQuestion } from '../../QuestionsData';
+import { Question } from '../Question';
+import { AnswerList } from '../AnswerList';
 
 interface RouteParams {
     questionId: string;
 }
 
-export const QuestionPage: FC<RouteComponentProps<RouteParams>> = ({
+export const QuestionView: FC<RouteComponentProps<RouteParams>> = ({
     match,
 }) => {
     const [question, setQuestion] = useState<QuestionData | null>(null);
@@ -26,11 +27,8 @@ export const QuestionPage: FC<RouteComponentProps<RouteParams>> = ({
     return (
         <div className="View">
             <div className="container">
-                <div className="card">
-                    <div className="question">
-                        {question && <Question data={question} />}
-                    </div>
-                </div>
+                {question && <Question data={question} />}
+                {question && <AnswerList data={question.answers} />}
             </div>
         </div>
     );

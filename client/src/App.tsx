@@ -2,12 +2,12 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import { Header } from './components/Header';
-import { HomePage } from './components/HomePage';
-import { SearchPage } from './components/SearchPage';
-import { AskPage } from './components/AskPage';
-import { LoginPage } from './components/LoginPage';
-import { QuestionPage } from './components/QuestionPage';
-import { NotFoundPage } from './components/NotFoundPage';
+import { HomeView } from './components/views/HomeView';
+import { SearchView } from './components/views/SearchView';
+import { AskView } from './components/views/AskView';
+import { LoginView } from './components/views/LoginView';
+import { QuestionView } from './components/views/QuestionView';
+import { NotFoundView } from './components/views/NotFoundView';
 import './App.css';
 
 function App() {
@@ -16,15 +16,15 @@ function App() {
             <div className="App">
                 <Header />
                 <Switch>
-                    <Route exact path="/" component={HomePage} />
-                    <Route path="/search" component={SearchPage} />
-                    <Route path="/ask" component={AskPage} />
-                    <Route path="/login" component={LoginPage} />
+                    <Route exact path="/" component={HomeView} />
+                    <Route path="/search" component={SearchView} />
+                    <Route path="/ask" component={AskView} />
+                    <Route path="/login" component={LoginView} />
                     <Route
                         path="/questions/:questionId"
-                        component={QuestionPage}
+                        component={QuestionView}
                     />
-                    <Route component={NotFoundPage} />
+                    <Route component={NotFoundView} />
                 </Switch>
             </div>
         </BrowserRouter>
