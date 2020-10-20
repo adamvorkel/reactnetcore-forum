@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Search, User } from 'react-feather';
 
 export const Header = () => (
     <header className="app-header">
-        <a href="./" className="logo">
+        <Link to="/" className="logo">
             GoodAdvice
-        </a>
+        </Link>
         <span className="search">
             <button className="search-button">
                 <Search size={16} />
@@ -16,11 +17,11 @@ export const Header = () => (
                 placeholder="Search..."
             />
         </span>
-        <a href="./login" className="login">
+        <Link to="./login" className="login">
             <span className="login-icon">
                 <User size={16} />
             </span>
             <span className="login-text">Login</span>
-        </a>
+        </Link>
     </header>
 );

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { QuestionData, getUnansweredQuestions } from '../QuestionsData';
 import { QuestionList } from './QuestionList';
@@ -19,7 +20,9 @@ export const HomePage = () => {
             <div className="view-header">
                 <div className="container">
                     <h2>Unanswered Questions</h2>
-                    <button className="btn btn-primary">Ask a question</button>
+                    <Link to="/ask" className="btn btn-primary">
+                        Ask a question
+                    </Link>
                 </div>
             </div>
             <main>

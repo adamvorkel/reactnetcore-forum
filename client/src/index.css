@@ -1,184 +1,185 @@
 :root {
-  /* Type */
-  --font-stack-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  /* Colors */
-  --color-bg: #f9f7f7;
-  --color-primary: #112d4e;
-  --color-accent: #3f72af;
-  --color-light: #dbe2ef;
-  --color-dark: #222;
-  --color-gray-light: #ccc;
-  --color-gray-dark: #777;
-  /* Shadows */
-  --shadow-soft: 0px 5px 15px -10px rgba(110, 110, 110, 0.4);
+    /* Type */
+    --font-stack-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+    /* Colors */
+    --color-bg: #f9f7f7;
+    --color-primary: #112d4e;
+    --color-accent: #3f72af;
+    --color-light: #dbe2ef;
+    --color-dark: #222;
+    --color-gray-light: #ccc;
+    --color-gray-dark: #777;
+    /* Shadows */
+    --shadow-soft: 0px 5px 15px -10px rgba(110, 110, 110, 0.4);
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: var(--font-stack-main);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.5em;
-  font-size: 16px;
-  background-color: var(--color-bg);
+    margin: 0;
+    font-family: var(--font-stack-main);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5em;
+    font-size: 16px;
+    background-color: var(--color-bg);
 }
 
 input {
-  font-size: 0.9rem;
+    font-size: 0.9rem;
 }
 
 input[type='search']::-webkit-search-decoration,
 input[type='search']::-webkit-search-cancel-button,
 input[type='search']::-webkit-search-results-button,
 input[type='search']::-webkit-search-results-decoration {
-  display: none;
+    display: none;
 }
 
 main {
-  margin-top: 1.25rem;
+    margin-top: 1.25rem;
 }
 
 p {
-  margin-bottom: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 .container {
-  margin: 0 1.25rem;
+    margin: 0 1.25rem;
 }
 
 .btn {
-  font-size: 0.9rem;
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 0.5rem;
-  transition: all 0.15s ease;
+    font-size: 0.9rem;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: all 0.15s ease;
+    text-decoration: none;
 }
 
 .btn:focus {
-  outline: none;
+    outline: none;
 }
 
 .btn-primary {
-  background-color: var(--color-primary);
-  color: #ccc;
+    background-color: var(--color-primary);
+    color: #ccc;
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-  color: #fff;
+    color: #fff;
 }
 
 .app-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.6rem 1.25rem;
-  background-color: #fff;
-  box-shadow: var(--shadow-soft);
-  font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 1.25rem;
+    background-color: #fff;
+    box-shadow: var(--shadow-soft);
+    font-size: 0.9rem;
 }
 
 .app-header .logo {
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: var(--color-dark);
-  text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--color-dark);
+    text-decoration: none;
 }
 
 .app-header .search {
-  display: flex;
-  margin-right: auto;
-  margin-left: 1.25rem;
-  border-radius: 3rem;
-  border: 1px solid var(--color-gray-light);
-  overflow: hidden;
+    display: flex;
+    margin-right: auto;
+    margin-left: 1.25rem;
+    border-radius: 3rem;
+    border: 1px solid var(--color-gray-light);
+    overflow: hidden;
 }
 
 .app-header .search .search-button {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: transparent;
-  border: none;
-  outline: none;
-  padding: 0.6rem 0.6rem 0.6rem 1rem;
-  cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0.6rem 0.6rem 0.6rem 1rem;
+    cursor: pointer;
 }
 
 .app-header .search .search-input {
-  border: none;
-  outline: none;
-  padding: 0 1rem 0 0.3rem;
+    border: none;
+    outline: none;
+    padding: 0 1rem 0 0.3rem;
 }
 
 .app-header .login {
-  color: var(--color-dark);
-  text-decoration: none;
-  display: flex;
+    color: var(--color-dark);
+    text-decoration: none;
+    display: flex;
 }
 
 .app-header .login .login-icon {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .app-header .login .login-text {
-  padding: 0.4rem;
+    padding: 0.4rem;
 }
 
 @media screen and (min-width: 75rem) {
-  .container {
-    max-width: 70rem;
-    margin: 0 auto;
-  }
+    .container {
+        max-width: 70rem;
+        margin: 0 auto;
+    }
 }
 
 .view-header {
-  padding: 2.5rem 0;
-  background-color: var(--color-accent);
-  color: #fff;
+    padding: 2.5rem 0;
+    background-color: var(--color-accent);
+    color: #fff;
 }
 
 .view-header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .view-header h2 {
-  font-size: 2rem;
+    font-size: 2rem;
 }
 
 .question-list {
-  padding: 0.25rem 1.5rem;
-  list-style-type: none;
-  background-color: #fff;
-  box-shadow: var(--shadow-soft);
+    padding: 0.25rem 1.5rem;
+    list-style-type: none;
+    background-color: #fff;
+    box-shadow: var(--shadow-soft);
 }
 
 .question-list .question {
-  padding: 1.25rem 0;
+    padding: 1.25rem 0;
 }
 
 .question-list .question + .question {
-  border-top: 1px solid var(--color-gray-light);
+    border-top: 1px solid var(--color-gray-light);
 }
 
 .question-list .question .question-title {
-  margin-bottom: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 .question-list .question .question-created {
-  font-size: 0.9rem;
-  color: var(--color-gray-dark);
+    font-size: 0.9rem;
+    color: var(--color-gray-dark);
 }
