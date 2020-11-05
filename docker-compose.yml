@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+    api:
+        build: ./api
+        ports:
+            - "8000:80"
+        volumes:
+            - './api:/api'
+        depends_on:
+            - db
+    db:
+        image: "mcr.microsoft.com/mssql/server"
+        environment:
+            SA_PASSWORD: "Passw0rd"
+            ACCEPT_EULA: "Y"
