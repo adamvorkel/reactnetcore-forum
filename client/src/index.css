@@ -61,6 +61,16 @@ p {
     margin-bottom: 0.5em;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form .field {
+    display: flex;
+    flex-direction: column;
+}
+
 .container {
     margin: 0 1.25rem;
 }

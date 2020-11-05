@@ -1,5 +1,5 @@
 import React, { FC, useContext, ChangeEvent } from 'react';
-import { Form, FormContext } from './Form';
+import { FormContext } from './Form';
 
 interface Props {
     name: string;
@@ -19,7 +19,7 @@ export const Field: FC<Props> = ({ name, label, type = 'Text' }) => {
             {({ values }) => (
                 <div className="field">
                     {label && <label htmlFor={name}>{label}</label>}
-                    {(type === 'TextArea' || type === 'Password') && (
+                    {(type === 'Text' || type === 'Password') && (
                         <input
                             type={type.toLowerCase()}
                             id={name}

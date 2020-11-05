@@ -30,7 +30,7 @@ export const Form: FC<Props> = ({ submitCaption, children }) => {
         >
             <form noValidate={true}>
                 {children}
-                <button type="submit">
+                <button type="submit" className="btn btn-primary">
                     {submitCaption ? submitCaption : 'Submit'}
                 </button>
             </form>
