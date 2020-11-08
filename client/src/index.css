@@ -76,11 +76,14 @@ p {
 
 form {
     display: flex;
+}
+
+.Form {
     flex-direction: column;
     margin-top: 1rem;
 }
 
-form .field {
+.Form .field {
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;

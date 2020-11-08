@@ -137,7 +137,7 @@ export const Form: FC<Props> = ({
                 },
             }}
         >
-            <form noValidate={true} onSubmit={handleSubmit}>
+            <form noValidate={true} onSubmit={handleSubmit} className="Form">
                 {children}
                 <button
                     type="submit"
