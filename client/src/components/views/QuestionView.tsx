@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
-import { Form } from '../Form';
+import { Form, required, minLength } from '../Form';
 import { Field } from '../Field';
 
 import { QuestionData } from '../../QuestionsData';
@@ -33,7 +33,15 @@ export const QuestionView: FC<RouteComponentProps<RouteParams>> = ({
             <div className="container">
                 {question && <Question data={question} />}
                 {question && <AnswerList data={question.answers} />}
-                <Form submitCaption="Submit Answer">
+                <Form
+                    submitCaption="Submit Answer"
+                    validationRules={{
+                        content: [
+                            { validator: required },
+                            { validator: minLength, arg: 50 },
+                        ],
+                    }}
+                >
                     <Field name="content" label="Your Answer" type="TextArea" />
                 </Form>
             </div>
