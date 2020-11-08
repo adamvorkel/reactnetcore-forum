@@ -3,7 +3,7 @@ import { RouteComponentProps } from 'react-router-dom';
 
 import { QuestionList } from '../QuestionList';
 import { QuestionData } from '../../QuestionsData';
-import { searchQuestions } from '../../utils';
+import { searchQuestions } from '../../api/mock';
 
 export const SearchView: FC<RouteComponentProps> = ({ location }) => {
     const [questions, setQuestions] = useState<QuestionData[]>([]);

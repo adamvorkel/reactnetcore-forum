@@ -59,18 +59,18 @@ export interface SubmitResult {
 }
 
 interface Props {
+    onSubmit: (values: Values) => Promise<SubmitResult>;
     submitCaption?: string;
     validationRules?: ValidationProp;
-    onSubmit: (values: Values) => Promise<SubmitResult>;
     successMessage?: string;
     failureMessage?: string;
 }
 
 export const Form: FC<Props> = ({
-    submitCaption,
     children,
-    validationRules,
     onSubmit,
+    submitCaption,
+    validationRules,
     successMessage = 'Submitted successfully',
     failureMessage = 'Something went wrong',
 }) => {

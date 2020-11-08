@@ -7,7 +7,7 @@ import { Field } from '../Field';
 import { QuestionData } from '../../QuestionsData';
 import { Question } from '../Question';
 import { AnswerList } from '../AnswerList';
-import { getQuestion, postAnswer } from '../../utils';
+import { getQuestion, postAnswer } from '../../api/mock';
 
 interface RouteParams {
     questionId: string;

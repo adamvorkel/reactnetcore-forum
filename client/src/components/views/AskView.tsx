@@ -3,7 +3,7 @@ import React from 'react';
 import { Form, Values, required, minLength } from '../Form';
 import { Field } from '../Field';
 
-import { postQuestion } from '../../utils';
+import { postQuestion } from '../../api/mock';
 
 export const AskView = () => {
     const handleSubmit = async (values: Values) => {

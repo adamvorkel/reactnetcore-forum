@@ -1,5 +1,5 @@
-import { QuestionData, PostQuestionData } from './QuestionsData';
-import { AnswerData, PostAnswerData } from './AnswerData';
+import { QuestionData, PostQuestionData } from '../QuestionsData';
+import { AnswerData, PostAnswerData } from '../AnswerData';
 
 export const wait = (ms: number): Promise<void> => {
     return new Promise((resolve) => setTimeout(resolve, ms));

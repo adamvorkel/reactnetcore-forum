@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { QuestionData } from '../../QuestionsData';
 import { QuestionList } from '../QuestionList';
-import { getUnansweredQuestions } from '../../utils';
+import { getUnansweredQuestions } from '../../api/mock';
 
 export const HomeView = () => {
     const [questions, setQuestions] = useState<QuestionData[] | null>(null);
