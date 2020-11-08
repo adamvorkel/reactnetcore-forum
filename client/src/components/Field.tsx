@@ -8,15 +8,20 @@ interface Props {
 }
 
 export const Field: FC<Props> = ({ name, label, type = 'Text' }) => {
-    const { setValue } = useContext(FormContext);
+    const { setValue, touched, setTouched, validate } = useContext(FormContext);
     const handleChange = (
         e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
     ) => {
         setValue && setValue(name, e.currentTarget.value);
+        touched[name] && validate && validate(name);
+    };
+    const handleBlur = () => {
+        setTouched && setTouched(name);
+        validate && validate(name);
     };
     return (
         <FormContext.Consumer>
-            {({ values }) => (
+            {({ values, errors }) => (
                 <div className="field">
                     {label && <label htmlFor={name}>{label}</label>}
                     {(type === 'Text' || type === 'Password') && (
@@ -25,6 +30,7 @@ export const Field: FC<Props> = ({ name, label, type = 'Text' }) => {
                             id={name}
                             value={values[name] ? values[name] : ''}
                             onChange={handleChange}
+                            onBlur={handleBlur}
                         />
                     )}
                     {type === 'TextArea' && (
@@ -32,8 +38,14 @@ export const Field: FC<Props> = ({ name, label, type = 'Text' }) => {
                             id={name}
                             value={values[name] ? values[name] : ''}
                             onChange={handleChange}
+                            onBlur={handleBlur}
                         />
                     )}
+                    {errors[name] &&
+                        errors[name].length > 0 &&
+                        errors[name].map((error) => (
+                            <div key={error}>{error}</div>
+                        ))}
                 </div>
             )}
         </FormContext.Consumer>
