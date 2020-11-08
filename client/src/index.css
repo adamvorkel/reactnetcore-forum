@@ -34,6 +34,7 @@ body {
 
 input,
 textarea {
+    font-family: var(--font-stack-main);
     font-size: 0.9rem;
     padding: 0.5rem;
 }
@@ -41,6 +42,11 @@ textarea {
 input:focus,
 textarea:focus {
     outline: none;
+}
+
+button:disabled {
+    cursor: default;
+    opacity: 0.75;
 }
 
 input[type='search']::-webkit-search-decoration,
@@ -71,6 +77,7 @@ p {
 form {
     display: flex;
     flex-direction: column;
+    margin-top: 1rem;
 }
 
 form .field {
@@ -79,8 +86,21 @@ form .field {
     margin-bottom: 1rem;
 }
 
-form .error {
+.alert {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #fff;
+    border-left: 4px solid var(--color-gray-dark);
+}
+
+.alert-success {
+    color: green;
+    border-left-color: green;
+}
+
+.alert-error {
     color: red;
+    border-left-color: red;
 }
 
 .container {

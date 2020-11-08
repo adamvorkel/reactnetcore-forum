@@ -1,4 +1,5 @@
-import { QuestionData } from './QuestionsData';
+import { QuestionData, PostQuestionData } from './QuestionsData';
+import { AnswerData, PostAnswerData } from './AnswerData';
 
 export const wait = (ms: number): Promise<void> => {
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -63,4 +64,33 @@ export const searchQuestions = async (
             q.title.toLowerCase().indexOf(query.toLowerCase()) >= 0 ||
             q.content.toLowerCase().indexOf(query.toLowerCase()) >= 0,
     );
+};
+
+export const postQuestion = async (
+    question: PostQuestionData,
+): Promise<QuestionData | undefined> => {
+    await wait(300);
+    const questionId = Math.max(...questions.map((q) => q.questionId)) + 1;
+    const newQuestion: QuestionData = {
+        ...question,
+        questionId,
+        answers: [],
+    };
+    questions.push(newQuestion);
+    return newQuestion;
+};
+
+export const postAnswer = async (
+    answer: PostAnswerData,
+): Promise<AnswerData | undefined> => {
+    await wait(300);
+    const question = questions.filter(
+        (q) => q.questionId === answer.questionId,
+    )[0];
+    const answerInQuestion: AnswerData = {
+        answerId: 99,
+        ...answer,
+    };
+    question.answers.push(answerInQuestion);
+    return answerInQuestion;
 };

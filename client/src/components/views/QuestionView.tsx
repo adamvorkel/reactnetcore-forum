@@ -1,13 +1,13 @@
 import React, { FC, useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
-import { Form, required, minLength } from '../Form';
+import { Form, Values, required, minLength } from '../Form';
 import { Field } from '../Field';
 
 import { QuestionData } from '../../QuestionsData';
 import { Question } from '../Question';
 import { AnswerList } from '../AnswerList';
-import { getQuestion } from '../../utils';
+import { getQuestion, postAnswer } from '../../utils';
 
 interface RouteParams {
     questionId: string;
@@ -27,7 +27,15 @@ export const QuestionView: FC<RouteComponentProps<RouteParams>> = ({
             doGetQuestion(questionId);
         }
     }, [match.params.questionId]);
-
+    const handleSubmit = async (values: Values) => {
+        const result = await postAnswer({
+            questionId: question!.questionId,
+            content: values.content,
+            userName: 'Adam',
+            created: new Date(),
+        });
+        return { success: result ? true : false };
+    };
     return (
         <div className="View">
             <div className="container">
@@ -41,6 +49,9 @@ export const QuestionView: FC<RouteComponentProps<RouteParams>> = ({
                             { validator: minLength, arg: 50 },
                         ],
                     }}
+                    onSubmit={handleSubmit}
+                    failureMessage="There was a problem submitting your question..."
+                    successMessage="Your answer has been submitted!"
                 >
                     <Field name="content" label="Your Answer" type="TextArea" />
                 </Form>

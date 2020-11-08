@@ -44,7 +44,7 @@ export const Field: FC<Props> = ({ name, label, type = 'Text' }) => {
                     {errors[name] &&
                         errors[name].length > 0 &&
                         errors[name].map((error) => (
-                            <div key={error} className="error">
+                            <div key={error} className="alert alert-error">
                                 {error}
                             </div>
                         ))}
