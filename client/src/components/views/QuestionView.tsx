@@ -1,6 +1,9 @@
 import React, { FC, useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
+import { Form } from '../Form';
+import { Field } from '../Field';
+
 import { QuestionData } from '../../QuestionsData';
 import { Question } from '../Question';
 import { AnswerList } from '../AnswerList';
@@ -30,6 +33,9 @@ export const QuestionView: FC<RouteComponentProps<RouteParams>> = ({
             <div className="container">
                 {question && <Question data={question} />}
                 {question && <AnswerList data={question.answers} />}
+                <Form submitCaption="Submit Answer">
+                    <Field name="content" label="Your Answer" type="TextArea" />
+                </Form>
             </div>
         </div>
     );
