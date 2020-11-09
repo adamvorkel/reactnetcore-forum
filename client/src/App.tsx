@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 
 import { configureStore } from './state/store';
 import Header from './components/Header';
-import { HomeView } from './components/views/HomeView';
+import HomeView from './components/views/HomeView';
 import { SearchView } from './components/views/SearchView';
 import { AskView } from './components/views/AskView';
 import { LoginView } from './components/views/LoginView';

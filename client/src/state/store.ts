@@ -1,5 +1,5 @@
 import { Store, createStore, applyMiddleware, combineReducers } from 'redux';
-import thunk, { ThunkAction } from 'redux-thunk';
+import thunk from 'redux-thunk';
 
 import { QuestionsState } from './questions';
 import { questionsReducer } from './questions/reducer';
