@@ -5,11 +5,11 @@ import { ThunkDispatch } from 'redux-thunk';
 import { connect } from 'react-redux';
 
 import { QuestionData } from '../../QuestionsData';
-import { QuestionList } from '../QuestionList';
 
 import { AppState } from '../../state/store';
 import { getUnansweredQuestionsActionCreator } from '../../state/questions/actions';
-import { getUnansweredQuestions } from '../../api/mock';
+
+import { QuestionList } from '../QuestionList';
 
 interface Props extends RouteComponentProps {
     getUnansweredQuestions: () => Promise<void>;

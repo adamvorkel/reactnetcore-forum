@@ -1,24 +1,57 @@
-import React from 'react';
+import React, { FC, useEffect } from 'react';
+import { AnyAction } from 'redux';
+import { ThunkDispatch } from 'redux-thunk';
+import { connect } from 'react-redux';
 
-import { Form, Values, required, minLength } from '../Form';
+import { PostQuestionData, QuestionData } from '../../QuestionsData';
+
+import { AppState } from '../../state/store';
+import {
+    postQuestionActionCreator,
+    clearPostedQuestionActionCreator,
+} from '../../state/questions/actions';
+
+import { Form, Values, required, minLength, SubmitResult } from '../Form';
 import { Field } from '../Field';
 
-import { postQuestion } from '../../api/mock';
+interface Props {
+    postQuestion: (questions: PostQuestionData) => Promise<void>;
+    clearPostedQuestion: () => void;
+    postedQuestionResult?: QuestionData;
+}
 
-export const AskView = () => {
-    const handleSubmit = async (values: Values) => {
-        const question = await postQuestion({
+const AskView: FC<Props> = ({
+    postQuestion,
+    clearPostedQuestion,
+    postedQuestionResult,
+}) => {
+    useEffect(() => {
+        //cleanup
+        return () => {
+            clearPostedQuestion();
+        };
+    }, [clearPostedQuestion]);
+
+    const handleSubmit = (values: Values) => {
+        postQuestion({
             title: values.title,
             content: values.content,
             userName: 'Adam',
             created: new Date(),
         });
-        return { success: question ? true : false };
     };
+
+    let submitResult: SubmitResult | undefined;
+    if (postedQuestionResult) {
+        submitResult = { success: postedQuestionResult !== undefined };
+    }
+
     return (
         <div className="View">
             <div className="container">
                 <Form
+                    onSubmit={handleSubmit}
+                    submitResult={submitResult}
                     submitCaption="Submit Question"
                     validationRules={{
                         title: [
@@ -30,7 +63,6 @@ export const AskView = () => {
                             { validator: minLength, arg: 50 },
                         ],
                     }}
-                    onSubmit={handleSubmit}
                     failureMessage="There was a problem submitting your question..."
                     successMessage="Your question has been submitted!"
                 >
@@ -41,3 +73,19 @@ export const AskView = () => {
         </div>
     );
 };
+
+const mapStateToProps = (store: AppState) => {
+    return {
+        postedQuestionResult: store.questions.postedResult,
+    };
+};
+
+const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, AnyAction>) => {
+    return {
+        postQuestion: (question: PostQuestionData) =>
+            dispatch(postQuestionActionCreator(question)),
+        clearPostedQuestion: () => dispatch(clearPostedQuestionActionCreator()),
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AskView);

@@ -159,7 +159,7 @@ export const Form: FC<Props> = ({
                 <button
                     type="submit"
                     className="btn btn-primary"
-                    disabled={submitting || (submitted && !submitError)}
+                    disabled={disabled}
                 >
                     {submitCaption ? submitCaption : 'Submit'}
                 </button>
