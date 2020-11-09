@@ -59,11 +59,12 @@ export interface SubmitResult {
 }
 
 interface Props {
-    onSubmit: (values: Values) => Promise<SubmitResult>;
+    onSubmit: (values: Values) => Promise<SubmitResult> | void;
     submitCaption?: string;
     validationRules?: ValidationProp;
     successMessage?: string;
     failureMessage?: string;
+    submitResult?: SubmitResult;
 }
 
 export const Form: FC<Props> = ({
@@ -73,6 +74,7 @@ export const Form: FC<Props> = ({
     validationRules,
     successMessage = 'Submitted successfully',
     failureMessage = 'Something went wrong',
+    submitResult,
 }) => {
     const [values, setValues] = useState<Values>({});
     const [errors, setErrors] = useState<Errors>({});
@@ -100,6 +102,9 @@ export const Form: FC<Props> = ({
             setSubmitting(true);
             setSubmitError(false);
             const result = await onSubmit(values);
+
+            if (result === undefined) return;
+
             setErrors(result.errors || {});
             setSubmitError(!result.success);
             setSubmitting(false);
@@ -121,6 +126,18 @@ export const Form: FC<Props> = ({
         setErrors(newErrors);
         return !haveError;
     };
+
+    const disabled = submitResult
+        ? submitResult.success
+        : submitting || (submitted && !submitError);
+
+    const showError = submitResult
+        ? !submitResult.success
+        : submitted && submitError;
+
+    const showSuccess = submitResult
+        ? submitResult.success
+        : submitted && !submitError;
 
     return (
         <FormContext.Provider
@@ -146,10 +163,10 @@ export const Form: FC<Props> = ({
                 >
                     {submitCaption ? submitCaption : 'Submit'}
                 </button>
-                {submitted && submitError && (
+                {showError && (
                     <div className="alert alert-error">{failureMessage}</div>
                 )}
-                {submitted && !submitError && (
+                {showSuccess && (
                     <div className="alert alert-success">{successMessage}</div>
                 )}
             </form>
