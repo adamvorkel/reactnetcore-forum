@@ -1,5 +1,9 @@
 import React, { FC, useContext, ChangeEvent } from 'react';
 import { FormContext } from './Form';
+import { StyledField, StyledTextarea } from './styled/lib';
+
+// style
+import { Alert } from './styled/lib';
 
 interface Props {
     name: string;
@@ -25,7 +29,7 @@ export const Field: FC<Props> = ({ name, label, type = 'Text' }) => {
                 <div className="field">
                     {label && <label htmlFor={name}>{label}</label>}
                     {(type === 'Text' || type === 'Password') && (
-                        <input
+                        <StyledField
                             type={type.toLowerCase()}
                             id={name}
                             value={values[name] ? values[name] : ''}
@@ -34,7 +38,7 @@ export const Field: FC<Props> = ({ name, label, type = 'Text' }) => {
                         />
                     )}
                     {type === 'TextArea' && (
-                        <textarea
+                        <StyledTextarea
                             id={name}
                             value={values[name] ? values[name] : ''}
                             onChange={handleChange}
@@ -44,9 +48,9 @@ export const Field: FC<Props> = ({ name, label, type = 'Text' }) => {
                     {errors[name] &&
                         errors[name].length > 0 &&
                         errors[name].map((error) => (
-                            <div key={error} className="alert alert-error">
+                            <Alert key={error} error>
                                 {error}
-                            </div>
+                            </Alert>
                         ))}
                 </div>
             )}

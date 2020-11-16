@@ -1,6 +1,9 @@
 import React, { FC, useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
+// style
+import { Container } from '../styled/lib';
+
 import { QuestionList } from '../QuestionList';
 import { QuestionData } from '../../QuestionsData';
 import { searchQuestions } from '../../api/mock';
@@ -19,11 +22,11 @@ export const SearchView: FC<RouteComponentProps> = ({ location }) => {
         doSearch(searchQuery);
     }, [searchQuery]);
     return (
-        <div className="container">
+        <Container>
             <div className="View">
                 <p>Search Results for "{searchQuery}"</p>
                 <QuestionList data={questions} />
             </div>
-        </div>
+        </Container>
     );
 };

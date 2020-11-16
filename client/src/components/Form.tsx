@@ -1,5 +1,7 @@
 import React, { FC, useState, createContext, FormEvent } from 'react';
 
+import { StyledForm, Button, Alert } from './styled/lib';
+
 export interface Values {
     [key: string]: any;
 }
@@ -154,22 +156,19 @@ export const Form: FC<Props> = ({
                 },
             }}
         >
-            <form noValidate={true} onSubmit={handleSubmit} className="Form">
+            <StyledForm noValidate={true} onSubmit={handleSubmit}>
                 {children}
-                <button
+                <Button
                     type="submit"
                     className="btn btn-primary"
                     disabled={disabled}
+                    primary
                 >
                     {submitCaption ? submitCaption : 'Submit'}
-                </button>
-                {showError && (
-                    <div className="alert alert-error">{failureMessage}</div>
-                )}
-                {showSuccess && (
-                    <div className="alert alert-success">{successMessage}</div>
-                )}
-            </form>
+                </Button>
+                {showError && <Alert error>{failureMessage}</Alert>}
+                {showSuccess && <Alert success>{successMessage}</Alert>}
+            </StyledForm>
         </FormContext.Provider>
     );
 };

@@ -1,6 +1,8 @@
 import React, { FC, useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
+import { Container, Layout, Main, Sidebar } from '../styled/lib';
+
 import { Form, Values, required, minLength } from '../Form';
 import { Field } from '../Field';
 
@@ -37,10 +39,9 @@ export const QuestionView: FC<RouteComponentProps<RouteParams>> = ({
         return { success: result ? true : false };
     };
     return (
-        <div className="container">
-            <div className="View">
-                <aside className="Sidebar">Related questions</aside>
-                <main className="Main">
+        <Container>
+            <Layout>
+                <Main>
                     {question && <Question data={question} />}
                     {question && <AnswerList data={question.answers} />}
                     <Form
@@ -61,8 +62,9 @@ export const QuestionView: FC<RouteComponentProps<RouteParams>> = ({
                             type="TextArea"
                         />
                     </Form>
-                </main>
-            </div>
-        </div>
+                </Main>
+                <Sidebar>Related questions</Sidebar>
+            </Layout>
+        </Container>
     );
 };

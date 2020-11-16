@@ -1,3 +1,12 @@
 import React from 'react';
 
-export const LoginView = () => <div>Login</div>;
+// style stuff
+import { Container } from '../styled/lib';
+
+export const LoginView = () => {
+    return (
+        <Container>
+            <h1>Login</h1>
+        </Container>
+    );
+};

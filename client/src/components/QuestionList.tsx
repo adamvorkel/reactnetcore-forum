@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
 
+import { Card } from './styled/lib';
+
 import { QuestionData } from '../QuestionsData';
 import { Question } from './Question';
 
@@ -8,9 +10,11 @@ interface Props {
 }
 
 export const QuestionList: FC<Props> = ({ data }) => (
-    <div className="QuestionList">
+    <>
         {data.map((question) => (
-            <Question data={question} key={question.questionId} />
+            <Card key={question.questionId}>
+                <Question data={question} />
+            </Card>
         ))}
-    </div>
+    </>
 );

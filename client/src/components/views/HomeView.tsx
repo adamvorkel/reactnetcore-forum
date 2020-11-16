@@ -4,6 +4,9 @@ import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { connect } from 'react-redux';
 
+// style stuff
+import { Container, LayoutInverted, Main, Sidebar, Card } from '../styled/lib';
+
 import { QuestionData } from '../../QuestionsData';
 
 import { AppState } from '../../state/store';
@@ -29,20 +32,22 @@ const HomeView: FC<Props> = ({
         }
     }, [questions, getUnansweredQuestions]);
     return (
-        <div className="container">
-            <div className="View">
-                <aside className="Sidebar">
-                    <p>This is the sidebar</p>
-                </aside>
-                <main className="Main">
+        <Container>
+            <LayoutInverted>
+                <Main>
                     {loading ? (
                         <div>Loading...</div>
                     ) : (
                         <QuestionList data={questions || []} />
                     )}
-                </main>
-            </div>
-        </div>
+                </Main>
+                <Sidebar>
+                    <Card>
+                        <p>This is the sidebar</p>
+                    </Card>
+                </Sidebar>
+            </LayoutInverted>
+        </Container>
     );
 };
 
