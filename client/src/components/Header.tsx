@@ -39,10 +39,8 @@ const Header: FC<RouteComponentProps> = ({ history, location }) => {
             <Link to="/ask" className="btn btn-primary">
                 Ask a question
             </Link>
-            <Link to="/login" className="login">
-                <span className="login-icon">
-                    <User size={16} />
-                </span>
+            <Link to="/login" className="login btn btn-outline">
+                {/* <User size={16} /> */}
                 <span className="login-text">Login</span>
             </Link>
         </header>

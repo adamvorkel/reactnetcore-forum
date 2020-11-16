@@ -37,24 +37,31 @@ export const QuestionView: FC<RouteComponentProps<RouteParams>> = ({
         return { success: result ? true : false };
     };
     return (
-        <div className="View">
-            <div className="container">
-                {question && <Question data={question} />}
-                {question && <AnswerList data={question.answers} />}
-                <Form
-                    submitCaption="Submit Answer"
-                    validationRules={{
-                        content: [
-                            { validator: required },
-                            { validator: minLength, arg: 50 },
-                        ],
-                    }}
-                    onSubmit={handleSubmit}
-                    failureMessage="There was a problem submitting your question..."
-                    successMessage="Your answer has been submitted!"
-                >
-                    <Field name="content" label="Your Answer" type="TextArea" />
-                </Form>
+        <div className="container">
+            <div className="View">
+                <aside className="Sidebar">Related questions</aside>
+                <main className="Main">
+                    {question && <Question data={question} />}
+                    {question && <AnswerList data={question.answers} />}
+                    <Form
+                        submitCaption="Submit Answer"
+                        validationRules={{
+                            content: [
+                                { validator: required },
+                                { validator: minLength, arg: 50 },
+                            ],
+                        }}
+                        onSubmit={handleSubmit}
+                        failureMessage="There was a problem submitting your question..."
+                        successMessage="Your answer has been submitted!"
+                    >
+                        <Field
+                            name="content"
+                            label="Your Answer"
+                            type="TextArea"
+                        />
+                    </Form>
+                </main>
             </div>
         </div>
     );

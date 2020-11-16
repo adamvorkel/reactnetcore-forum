@@ -19,8 +19,8 @@ export const SearchView: FC<RouteComponentProps> = ({ location }) => {
         doSearch(searchQuery);
     }, [searchQuery]);
     return (
-        <div className="View">
-            <div className="container">
+        <div className="container">
+            <div className="View">
                 <p>Search Results for "{searchQuery}"</p>
                 <QuestionList data={questions} />
             </div>

@@ -29,17 +29,20 @@ const HomeView: FC<Props> = ({
         }
     }, [questions, getUnansweredQuestions]);
     return (
-        <section id="home">
+        <div className="container">
             <div className="View">
-                <div className="container">
+                <aside className="Sidebar">
+                    <p>This is the sidebar</p>
+                </aside>
+                <main className="Main">
                     {loading ? (
                         <div>Loading...</div>
                     ) : (
                         <QuestionList data={questions || []} />
                     )}
-                </div>
+                </main>
             </div>
-        </section>
+        </div>
     );
 };
 

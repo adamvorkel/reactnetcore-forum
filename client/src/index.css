@@ -4,16 +4,15 @@
         'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
         'Helvetica Neue', sans-serif;
     /* Colors */
-    --color-text-heading: #111;
     --color-bg: #f9f7f7;
     --color-primary: #112d4e;
     --color-accent: #3f72af;
     --color-light: #dbe2ef;
-    --color-dark: #222;
-    --color-gray-light: #cdcdcd;
+    --color-dark: #282828;
+    --color-gray-light: #e2e2e2;
     --color-gray-dark: #999;
     /* Shadows */
-    --shadow-soft: 0px 2px 2px 0 rgba(110, 110, 110, 0.2);
+    --shadow-soft: 0px 1px 2px 0 rgba(110, 110, 110, 0.15);
 }
 
 * {
@@ -56,17 +55,13 @@ input[type='search']::-webkit-search-results-decoration {
     display: none;
 }
 
-main {
-    margin-top: 1.25rem;
-}
-
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    color: var(--color-text-heading);
+    color: var(--color-dark);
     text-decoration: none;
 }
 
@@ -106,18 +101,16 @@ form {
     border-left-color: red;
 }
 
-.container {
-    margin: 0 1.25rem;
-}
-
 .btn {
     font-size: 0.85rem;
     border: none;
-    padding: 0.45rem 1rem;
+    padding: 0.4rem 1.2rem;
     cursor: pointer;
-    border-radius: 1rem;
+    border-radius: 2rem;
     transition: all 0.15s ease;
     text-decoration: none;
+    border-width: 1px;
+    border-style: solid;
 }
 
 .btn:focus {
@@ -126,17 +119,35 @@ form {
 
 .btn-primary {
     background-color: var(--color-primary);
+    border-color: var(--color-primary);
     color: #fff;
+}
+
+.btn-outline {
+    border-color: var(--color-dark);
+    color: var(--color-dark);
+}
+
+.container {
+    margin: 0 1.25rem;
+}
+
+@media screen and (min-width: 75rem) {
+    .container {
+        max-width: 65rem;
+        margin: 0 auto;
+    }
 }
 
 .Header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.6rem 1.25rem;
+    padding: 0.5rem 1.25rem;
     background-color: #fff;
     box-shadow: var(--shadow-soft);
     font-size: 0.9rem;
+    border-bottom: 1px solid var(--color-gray-light);
 }
 
 .Header .logo {
@@ -177,37 +188,37 @@ form {
     margin-right: 1.25em;
 }
 
-.Header .login {
-    color: var(--color-dark);
-    text-decoration: none;
-    display: flex;
-}
-
-.Header .login .login-icon {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.Header .login .login-text {
-    padding: 0.4rem;
-}
-
-@media screen and (min-width: 75rem) {
-    .container {
-        max-width: 50rem;
-        margin: 0 auto;
-    }
-}
-
 .View {
-    margin-top: 2.5em;
+    margin-top: 2em;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: 'Sidebar Main';
+}
+
+.View .Main {
+    grid-area: Main;
+}
+
+.View .Sidebar {
+    grid-area: Sidebar;
+}
+
+.Sidebar {
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--color-gray-light);
+}
+
+.Main {
+    margin-left: 1em;
 }
 
 .QuestionList .Question {
     padding: 1rem;
     background-color: #fff;
     box-shadow: var(--shadow-soft);
+    border: 1px solid var(--color-gray-light);
 }
 
 .QuestionList .Question .title {
@@ -231,7 +242,7 @@ form {
     text-decoration: none;
     margin-top: 0.25rem;
     margin-bottom: 0.25em;
-    color: var(--color-text-heading);
+    color: var(--color-dark);
 }
 
 .Question .created {
